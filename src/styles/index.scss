@@ -80,15 +80,28 @@ body {
 
 .team-selection {
   display: flex;
+  flex-direction: column;
 }
 
 .team-selection-item {
   display: flex;
-  flex-direction: column;
-  align-items: center;
   margin: 0 2em;
+  align-items: center;
 }
 
 .team-selection-item__logo {
-  max-width: 150px;
+  max-width: 75px;
+}
+
+@media screen and (min-width: 650px) {
+  .team-selection {
+    flex-direction: row;
+  }
+  .team-selection-item {
+    flex-direction: column;
+  }
+
+  .team-selection-item__logo {
+    max-width: 150px;
+  }
 }

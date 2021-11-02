@@ -77,3 +77,18 @@ body {
 .btn-login {
   align-self: center;
 }
+
+.team-selection {
+  display: flex;
+}
+
+.team-selection-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 0 2em;
+}
+
+.team-selection-item__logo {
+  max-width: 150px;
+}

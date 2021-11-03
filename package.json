@@ -76,6 +76,7 @@
     "workbox-webpack-plugin": "5.1.4"
   },
   "scripts": {
+    "serve": "serve -s build",
     "start": "node scripts/start.js",
     "format": "prettier --write src/**/*.ts{,x}",
     "build": "node scripts/build.js",

@@ -1,0 +1,16 @@
+body {
+    font-family: $mainFont;
+    font-size: 1.125rem;
+    font-weight: 400;
+    line-height: 1.6;
+}
+
+h1 {
+    margin: 0;
+    font-size: 2rem;
+}
+
+.fancy-font {
+    font-family: $fancyFont;
+    font-weight: 400;
+}

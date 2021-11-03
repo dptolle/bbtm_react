@@ -1,0 +1,29 @@
+
+.team-selection-item {
+  display: flex;
+  margin: 0 2em;
+  align-items: center;
+  flex-direction: row;
+}
+
+.team-selection-item__logo {
+  max-width: 75px;
+  order: -1;
+}
+
+.team-selection-item__name{
+  order: 0;
+}
+
+@media screen and (min-width: $breakpoint) {
+  .team-selection {
+    flex-direction: row;
+  }
+  .team-selection-item {
+    flex-direction: column;
+  }
+
+  .team-selection-item__logo {
+    max-width: 150px;
+  }
+}

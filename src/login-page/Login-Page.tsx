@@ -1,17 +1,16 @@
 import React from 'react';
-import { Route } from 'react-router';
-import Footer from '../components/Footer';
-import Header from '../components/Header';
-import LoginMain from './Login-Main';
-import PageLayout from '../components/Page-Layout';
+import LoginBox from './Login-Box';
 
 function LoginPage() {
   return (
-    <PageLayout>
-        <Header></Header>
-        <LoginMain></LoginMain>
-        <Footer></Footer>
-    </PageLayout>
+    <main className="login-container container-flex">
+      <LoginBox className="login-container__item"></LoginBox>
+      <img
+        className="login-container__logo login-container__item"
+        src="blood-bowl-logo-660x330.jpeg"
+        alt="Blood Bowl logo"
+      />
+    </main>
   );
 }
 

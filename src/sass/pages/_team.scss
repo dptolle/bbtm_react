@@ -1,0 +1,29 @@
+.team-header {
+    color: white;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.hide-on-small {
+    display: none;
+    visibility: hidden;
+}
+
+.hide-on-large {
+    display: block;
+    visibility: initial;
+}
+
+@media screen and (min-width: $breakpoint) {
+  .hide-on-small {
+    display: block;
+    visibility: initial;
+}
+
+.hide-on-large {
+    display: none;
+    visibility: hidden;
+}
+}

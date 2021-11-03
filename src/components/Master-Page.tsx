@@ -1,16 +1,26 @@
-import React from 'react';
+import React, { Fragment } from 'react';
 import { Route } from 'react-router';
-import Footer from './Footer';
-import Header from './Header';
 import PageLayout from './Page-Layout';
-import TeamsPage from '../teams-page/Teams-Page';
+import TeamPage from '../team-page/Team-Page';
+import TeamSelectionPage from '../team-selection-page/Team-Selection-Page';
+import LoginPage from '../login-page/Login-Page';
+import StandardHeader from './StandardHeader';
+import TeamHeader from '../team-page/Team-Header';
 
 function MasterPage() {
   return (
     <PageLayout>
-      <Header></Header>
-      <Route path="/teams" component={TeamsPage} />
-      <Footer></Footer>
+      <Fragment>
+        <Route path="/team" exact component={TeamHeader} />
+        <Route path="/team-selection" exact component={StandardHeader} />
+        <Route path="/" exact component={StandardHeader} />
+      </Fragment>
+      <Fragment>
+        <Route path="/team" exact component={TeamPage} />
+        <Route path="/team-selection" exact component={TeamSelectionPage} />
+        <Route path="/" exact component={LoginPage} />
+      </Fragment>
+      <Fragment></Fragment>
     </PageLayout>
   );
 }

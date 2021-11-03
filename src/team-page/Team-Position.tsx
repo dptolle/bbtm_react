@@ -1,4 +1,4 @@
-import React, { Fragment } from 'react';
+import React  from 'react';
 
 interface Player {
   name: string;
@@ -10,21 +10,36 @@ interface Player {
   av: string;
   skills: string[];
 }
-
 interface TeamPositionProps {
     number: number;
     player: Player;
+    length: number;
 }
 function TeamPosition(props: TeamPositionProps) {
-    const { number } = props;
+    const { number, length, player } = props;
+    const playerArray = player ? ToArray(player) : [];
   return (
     <tr>
       <td>{number}</td>
-      {Array.from({ length: 2 }).map((_, index) => (
-        <td key={index}>Table cell {index}</td>
-      ))}
+      {player ? Array.from({ length: length }).map((_, index) => (
+        <td key={index}>{playerArray[index]}</td>
+      )) :
+      null}
     </tr>
   );
+}
+
+function ToArray(player: Player) {
+  return [
+    player.name,
+    player.position,
+    player.ma,
+    player.st,
+    player.ag,
+    player.ts,
+    player.av,
+    player.skills
+  ];
 }
 
 export default TeamPosition;

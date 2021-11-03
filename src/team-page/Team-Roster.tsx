@@ -18,11 +18,11 @@ function TeamRoster() {
         </thead>
         <tbody>
           {Array.from({ length: 16 }).map((_, index) => (
-            <TeamPosition number={index + 1} player={team[index]} />
+            <TeamPosition length={2} number={index + 1} player={team[index]} />
           ))}
         </tbody>
       </Table>
-       <Table className="hide-on-small">
+      <Table className="hide-on-small">
         <thead>
           <tr>
             <th>#</th>
@@ -33,7 +33,7 @@ function TeamRoster() {
         </thead>
         <tbody>
           {Array.from({ length: 16 }).map((_, index) => (
-            <TeamPosition number={index + 1} player={team[index]} />
+            <TeamPosition length={14} number={index + 1} player={team[index]} />
           ))}
         </tbody>
       </Table>

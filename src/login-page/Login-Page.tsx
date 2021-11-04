@@ -1,16 +1,16 @@
 import React from 'react';
-import LoginBox from './Login-Box';
+import PageLayout from '../components/Page-Layout';
+import LoginMain from './Login-Main';
+import StandardHeader from '../components/StandardHeader';
+import StandardFooter from '../components/StandardFooter';
 
 function LoginPage() {
   return (
-    <main className="login-container container-flex">
-      <LoginBox className="login-container__item"></LoginBox>
-      <img
-        className="login-container__logo login-container__item"
-        src="blood-bowl-logo-660x330.jpeg"
-        alt="Blood Bowl logo"
-      />
-    </main>
+    <PageLayout>
+      <StandardHeader title=""></StandardHeader>
+      <LoginMain></LoginMain>
+      <StandardFooter></StandardFooter>
+    </PageLayout>
   );
 }
 

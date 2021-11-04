@@ -1,16 +1,16 @@
-import React, { Fragment } from 'react';
-import TeamInfo from './Team-Info';
-
-import TeamManagement from './Team-Management';
-import TeamRoster from './Team-Roster';
+import React from 'react';
+import PageLayout from '../components/Page-Layout';
+import StandardFooter from '../components/StandardFooter';
+import TeamMain from './Team-Main';
+import TeamHeader from './Team-Header';
 
 function TeamPage() {
   return (
-    <Fragment>
-      <TeamManagement></TeamManagement>
-    <TeamRoster></TeamRoster>
-    <TeamInfo></TeamInfo>
-    </Fragment>
+    <PageLayout>
+      <TeamHeader></TeamHeader>
+      <TeamMain></TeamMain>
+      <StandardFooter></StandardFooter>
+    </PageLayout>
   );
 }
 

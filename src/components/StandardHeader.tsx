@@ -1,8 +1,15 @@
 import React from 'react';
 
-function StandardHeader() {
+export interface StandardHeaderProps {
+  title: string;
+}
+
+function StandardHeader(props: StandardHeaderProps) {
+  const {title} = props;
   return (
-    <div></div>
+    <div className="page-title">
+      <h1>{title}</h1>
+    </div>
   );
 }
 

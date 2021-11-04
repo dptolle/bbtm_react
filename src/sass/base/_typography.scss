@@ -8,9 +8,26 @@ body {
 h1 {
     margin: 0;
     font-size: 2rem;
+    font-weight: 700;
+}
+
+h2 {
+    text-align: center;
 }
 
 .fancy-font {
     font-family: $fancyFont;
     font-weight: 400;
+}
+
+.page-title {
+    color: white;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.breakable {
+    word-break: break-all;
 }

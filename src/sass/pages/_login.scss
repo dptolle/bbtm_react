@@ -2,7 +2,6 @@
   margin: 0 auto;
   height: 100%;
   justify-content: space-evenly;
-
 }
 
 .login-container__item {
@@ -26,4 +25,10 @@
 
 .login-input-container__btn {
   align-self: center;
+}
+
+@media screen and (min-width: $breakpoint) {
+  .login-container {
+    max-width: 625px;
+  }
 }

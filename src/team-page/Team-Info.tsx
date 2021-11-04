@@ -7,9 +7,11 @@ function TeamInfo() {
   return (
     <Fragment>
       <h2 className="fancy-font">Team Information</h2>
-      <TeamProgress></TeamProgress>
-      <hr></hr>
-      <TeamValue></TeamValue>
+      <div className="container-flex team-info-container">
+        <TeamProgress></TeamProgress>
+        <hr className="hide-on-large"></hr>
+        <TeamValue></TeamValue>
+      </div>
     </Fragment>
   );
 }

@@ -21,13 +21,31 @@
 }
 
 @media screen and (min-width: $breakpoint) {
-  .hide-on-small {
-    display: block;
-    visibility: initial;
-}
+    .hide-on-small {
+        display: block;
+        visibility: initial;
+    }
 
-.hide-on-large {
-    display: none;
-    visibility: hidden;
-}
+    .hide-on-large {
+        display: none;
+        visibility: hidden;
+    }
+
+    .team-management-container {
+        flex-direction: row;
+        justify-content: space-around;
+        font-size: 1.5em;
+    }
+
+    .team-info-container {
+        flex-direction: row;
+        font-size: 1.2em;
+        justify-content:space-between;
+        margin: 0 3em;
+    }
+
+    .team-value-container__final{
+        flex-direction: row;
+        justify-content:space-between;
+    }
 }

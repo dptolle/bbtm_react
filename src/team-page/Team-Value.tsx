@@ -19,8 +19,10 @@ function TeamValue() {
           })}
         </tbody>
       </Table>
-      <DisplayField label="Teamwert" value=""></DisplayField>
-      <DisplayField label="Momentaner Teamwert" value=""></DisplayField>
+      <div className="container-flex team-value-container__final">
+        <DisplayField label="Teamwert" value=""></DisplayField>
+        <DisplayField label="Momentaner Teamwert" value=""></DisplayField>
+      </div>
     </div>
   );
 }

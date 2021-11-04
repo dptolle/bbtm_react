@@ -17,7 +17,7 @@ function SplitRowValue(props: SplitRowValueProps) {
       <tr>
         <td></td>
         <td className="fancy-font">x</td>
-        <td className="fancy-font">{constant}</td>
+        <td className="fancy-font">{constant} GS</td>
         <td>{value * constant}</td>
       </tr>
     </Fragment>

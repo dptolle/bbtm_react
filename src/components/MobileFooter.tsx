@@ -5,17 +5,31 @@ import {
   Toolbar,
   useMediaQuery,
   useTheme,
+  Menu,
 } from '@mui/material';
 import React from 'react';
 import { Link, useHistory } from 'react-router-dom';
 import { ROUTE } from '../utils/routes';
 import MenuIcon from '@mui/icons-material/Menu';
 import AddIcon from '@mui/icons-material/Add';
+import { getUser } from '../utils/firebase';
+import MainMenu from './MainMenu';
 
 function MobileFooter() {
     const theme = useTheme();
     const matches = useMediaQuery(theme.breakpoints.up('sm'));
-  const history = useHistory();
+  const user = getUser();
+const [anchorEl, setAnchorEl] = React.useState<
+  (EventTarget & HTMLButtonElement) | null
+>(null);
+const open = Boolean(anchorEl);
+
+    function handleClick(event: React.MouseEvent<HTMLButtonElement>) {
+      setAnchorEl(event.currentTarget);
+    }
+    const handleClose = () => {
+      setAnchorEl(null);
+    };
   return (
     <AppBar
       component="footer"
@@ -30,34 +44,45 @@ function MobileFooter() {
           padding: '1em',
         }}
       >
-        {matches ? undefined : (
+        {!matches && user ? (
           <>
-          <Link
-            to="#"
-            onClick={() => {
-              history.push(ROUTE.LOGIN);
-            }}
-          >
-            <IconButton sx={{ color: 'white' }} aria-label="open drawer">
+            <IconButton
+              sx={{ color: 'white' }}
+              aria-label="Open Menu"
+              aria-controls="basic-menu"
+              aria-haspopup="true"
+              aria-expanded={open ? 'true' : undefined}
+              onClick={handleClick}
+            >
               <MenuIcon />
             </IconButton>
-          </Link>
-          <Fab
-          sx={{
-            position: 'absolute',
-            zIndex: 1,
-            top: -30,
-            left: 0,
-            right: 0,
-            margin: '0 auto',
-          }}
-          color="primary"
-          aria-label="add"
-        >
-          <AddIcon />
-        </Fab>
-        </>
-        )}
+            <Menu
+              id="basic-menu"
+              anchorEl={anchorEl}
+              open={open}
+              onClose={handleClose}
+              MenuListProps={{
+                'aria-labelledby': 'basic-button',
+              }}
+            >
+              <MainMenu></MainMenu>
+            </Menu>
+            <Fab
+              sx={{
+                position: 'absolute',
+                zIndex: 1,
+                top: -30,
+                left: 0,
+                right: 0,
+                margin: '0 auto',
+              }}
+              color="primary"
+              aria-label="add"
+            >
+              <AddIcon />
+            </Fab>
+          </>
+        ) : undefined}
       </Toolbar>
     </AppBar>
   );

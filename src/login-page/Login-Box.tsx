@@ -1,6 +1,7 @@
 import { Button, Paper, Stack, TextField, Typography } from '@mui/material';
 import React, { useState } from 'react';
 import { useHistory } from 'react-router';
+import { appSignInWithEmailAndPassword } from '../utils/firebase';
 import { ROUTE } from '../utils/routes';
 
 
@@ -44,7 +45,11 @@ const LoginBox: React.FC = () => {
           variant="contained"
           color="primary"
           onClick={() => {
-            history.push(ROUTE.TEAM_SELECTOB);
+            appSignInWithEmailAndPassword(email, password).then(
+              user => {
+                history.push(ROUTE.TEAM_SELECTION);
+              }
+            );
           }}
         >
           <Typography variant="button">Log In</Typography>

@@ -1,38 +1,57 @@
-import React from 'react';
-import Button from 'react-bootstrap/Button';
-import Form from 'react-bootstrap/Form';
-import { Link } from 'react-router-dom';
+import { Button, Paper, Stack, TextField, Typography } from '@mui/material';
+import React, { useState } from 'react';
+import { useHistory } from 'react-router';
+import { ROUTE } from '../utils/routes';
 
-interface LoginBoxProps {
-  className: string;
-}
 
-function LoginBox(props: LoginBoxProps) {
-  const {className} = props;
+const LoginBox: React.FC = () => {
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+  const history  = useHistory();
+
   return (
-    <Form className={'login-input-container container-flex ' + className}>
-      <Form.Group
-        className="login-input-container__input"
-        controlId="formBasicEmail"
-      >
-        <Form.Control type="email" placeholder="Enter email" />
-      </Form.Group>
-      <Form.Group
-        className="login-input-container__input"
-        controlId="formBasicPassword"
-      >
-        <Form.Control type="password" placeholder="Password" />
-      </Form.Group>
-
-      <Button
-        variant="primary"
-        className="login-input-container__btn"
-        type="submit"
-      >
-        <Link to="/team-selection">Log In</Link>
-      </Button>
-    </Form>
+    <Paper
+      sx={{ padding: '1em', width:'80%' }}
+      component="form"
+      variant="elevation"
+    >
+      <Stack>
+        <TextField
+          margin="dense"
+          required
+          type="email"
+          id="email"
+          label="Email"
+          variant="standard"
+          autoComplete="username"
+          value={email}
+          onChange={(e) => setEmail(e.target.value)}
+        />
+        <TextField
+          margin="dense"
+          required
+          type="password"
+          id="password"
+          label="Password"
+          variant="standard"
+          autoComplete="current-password"
+          value={password}
+          onChange={(e) => setPassword(e.target.value)}
+        />
+        <Button
+          sx={{ marginTop: '1em' }}
+          size="medium"
+          variant="contained"
+          color="primary"
+          onClick={() => {
+            history.push(ROUTE.TEAM_SELECTOB);
+          }}
+        >
+          <Typography variant="button">Log In</Typography>
+        </Button>
+      </Stack>
+    </Paper>
   );
-}
+};
 
 export default LoginBox;

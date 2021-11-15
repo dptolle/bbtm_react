@@ -1,15 +1,23 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
 import TeamSelectionItem from './Team-Selection-Item';
+import { Divider, Stack, useMediaQuery, useTheme } from '@mui/material';
+import TeamAdditionButton from './Team-Addition-Button';
 
 function TeamSelector() {
+
+  const theme = useTheme();
+  const matches = useMediaQuery(theme.breakpoints.up('sm'));
+
   return (
-    <div className="team-selection container-flex">
-      <Link to="/team">
-        <TeamSelectionItem name="Undead Shamblers" />
-      </Link>
+    <Stack
+      divider={matches ? undefined : <Divider color="primary" flexItem />}
+      spacing={matches ? 4 : 1}
+      direction={matches ? 'row' : 'column'}
+    >
+      <TeamSelectionItem name="Undead Shamblers" />
       <TeamSelectionItem name="Reikland Reavers" />
-    </div>
+      {matches ?  <TeamAdditionButton /> : undefined }
+    </Stack>
   );
 }
 

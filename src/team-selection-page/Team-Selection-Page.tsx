@@ -1,16 +1,15 @@
-import React from 'react';
-import PageLayout from '../components/Page-Layout';
-import StandardHeader from '../components/StandardHeader';
-import StandardFooter from '../components/StandardFooter';
+import React, { Fragment } from 'react';
+import LargeHeader from '../components/LargeHeader';
+import MobileFooter from '../components/MobileFooter';
 import TeamSelectionMain from './Team-Selection-Main';
 
 function TeamSelectionPage() {
   return (
-    <PageLayout>
-      <StandardHeader title="Team Selection"></StandardHeader>
+    <Fragment>
+      <LargeHeader title="Team Selection"></LargeHeader>
       <TeamSelectionMain></TeamSelectionMain>
-      <StandardFooter></StandardFooter>
-    </PageLayout>
+      <MobileFooter></MobileFooter>
+    </Fragment>
   );
 }
 

@@ -1,3 +1,4 @@
+import { Stack, Typography } from '@mui/material';
 import React from 'react';
 
 export interface DisplayFieldProps {
@@ -8,10 +9,12 @@ export interface DisplayFieldProps {
 function DisplayField(props: DisplayFieldProps) {
     const {label, value} = props;
   return (
-    <div className="display-field container-flex">
-      <div className="display-field__label fancy-font">{label}:</div>
-      <div>{value}</div>
-    </div>
+    <Stack direction='row' spacing={2} sx={{justifyContent:'space-between'}}>
+      <Typography variant="label">
+        {label}:
+      </Typography>
+      <Typography>{value}</Typography>
+    </Stack>
   );
 }
 

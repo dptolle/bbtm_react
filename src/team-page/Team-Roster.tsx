@@ -1,43 +1,37 @@
+import { Stack, Table, TableBody, TableCell, TableHead, TableRow, Typography, useMediaQuery, useTheme } from '@mui/material';
 import React from 'react';
-import Table from 'react-bootstrap/Table';
 import TeamPosition from './Team-Position';
 
 function TeamRoster() {
+  const theme = useTheme();
+  const matches = useMediaQuery(theme.breakpoints.up('sm'));
+
+  const usedHeading = matches ? headings : headings.slice(0, 2);
+  const numberOfDisplayedAttributes = matches ? 14 : 2;
 
   return (
-    <div className="team-roster">
-      <h2 className="fancy-font">Team Roster</h2>
-      <Table className="hide-on-large">
-        <thead>
-          <tr>
-            <th>#</th>
-            {headings.slice(0, 2).map((heading, index) => (
-              <th key={index}>{heading}</th>
+    <Stack>
+      <Typography variant="h2">Team Roster</Typography>
+      <Table>
+        <TableHead>
+          <TableRow>
+            <TableCell variant="head">
+              <Typography variant="label">#</Typography>
+            </TableCell>
+            {usedHeading.map((heading, index) => (
+              <TableCell variant="head" key={index}>
+                <Typography variant="label">{heading}</Typography>
+              </TableCell>
             ))}
-          </tr>
-        </thead>
-        <tbody>
+          </TableRow>
+        </TableHead>
+        <TableBody>
           {Array.from({ length: 16 }).map((_, index) => (
-            <TeamPosition length={2} number={index + 1} player={team[index]} />
+            <TeamPosition length={numberOfDisplayedAttributes} number={index + 1} player={team[index]} />
           ))}
-        </tbody>
+        </TableBody>
       </Table>
-      <Table className="hide-on-small">
-        <thead>
-          <tr>
-            <th>#</th>
-            {headings.map((heading, index) => (
-              <th key={index}>{heading}</th>
-            ))}
-          </tr>
-        </thead>
-        <tbody>
-          {Array.from({ length: 16 }).map((_, index) => (
-            <TeamPosition length={14} number={index + 1} player={team[index]} />
-          ))}
-        </tbody>
-      </Table>
-    </div>
+    </Stack>
   );
 }
 

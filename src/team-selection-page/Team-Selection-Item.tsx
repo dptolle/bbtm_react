@@ -1,21 +1,49 @@
+import { Stack, Typography, useMediaQuery, useTheme } from '@mui/material';
 import React from 'react';
+import { Link } from 'react-router-dom';
 
-interface TeamSelectoionItemProps {
+interface TeamSelectionItemProps {
   name: string;
 }
 
-function TeamSelectoionItem(props: TeamSelectoionItemProps) {
+function TeamSelectionItem(props: TeamSelectionItemProps) {
+    const theme = useTheme();
+    const matches = useMediaQuery(theme.breakpoints.up('sm'));
+
   const { name } = props;
   return (
-    <div className="team-selection-item">
-      <span className="fancy-font team-selection-item__name">{name}</span>
-      <img
-        className="team-selection-item__logo"
-        src="bb-button.png"
-        alt="Blood Bowl Button"
-      ></img>
-    </div>
+    <Link to="/team" style={{}}>
+      <Stack
+        direction={matches ? 'column-reverse' : 'row-reverse'}
+        sx={{
+          alignItems: 'center',
+          justifyContent: 'flex-end',
+          transform: 'scale(1)',
+          '&:hover': {
+            transform: 'scale(1.1)',
+          },
+          gap: '1em'
+        }}
+      >
+        <Typography
+          variant="h3"
+          sx={{
+            fontFamily: '"Fruktur", cursive;',
+          }}
+        >
+          {name}
+        </Typography>
+        <img
+          style={{
+            maxHeight: matches ? '150px' : '75px',
+            alignSelf: 'center',
+          }}
+          src="bb-button.png"
+          alt="Blood Bowl Button"
+        ></img>
+      </Stack>
+    </Link>
   );
 }
 
-export default TeamSelectoionItem;
+export default TeamSelectionItem;

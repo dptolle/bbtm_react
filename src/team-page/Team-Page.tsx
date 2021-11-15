@@ -1,16 +1,15 @@
-import React from 'react';
-import PageLayout from '../components/Page-Layout';
-import StandardFooter from '../components/StandardFooter';
+import React, { Fragment } from 'react';
+import MobileFooter from '../components/MobileFooter';
 import TeamMain from './Team-Main';
-import TeamHeader from './Team-Header';
+import LargeHeader from '../components/LargeHeader';
 
 function TeamPage() {
   return (
-    <PageLayout>
-      <TeamHeader></TeamHeader>
+    <Fragment>
+      <LargeHeader title="Team"></LargeHeader>
       <TeamMain></TeamMain>
-      <StandardFooter></StandardFooter>
-    </PageLayout>
+      <MobileFooter></MobileFooter>
+    </Fragment>
   );
 }
 

@@ -1,11 +1,18 @@
-import React, { Fragment } from 'react';
+import { Container } from '@mui/material';
+import React from 'react';
 import TeamSelector from './Team-Selector';
 
+
 function TeamSelectionMain() {
+
   return (
-    <Fragment>
+    <Container
+      sx={{
+        marginTop: '2em',
+      }}
+    >
       <TeamSelector />
-    </Fragment>
+    </Container>
   );
 }
 

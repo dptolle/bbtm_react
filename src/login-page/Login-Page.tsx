@@ -1,16 +1,15 @@
-import React from 'react';
-import PageLayout from '../components/Page-Layout';
+import React, { Fragment } from 'react';
 import LoginMain from './Login-Main';
-import StandardHeader from '../components/StandardHeader';
-import StandardFooter from '../components/StandardFooter';
+import LargeHeader from '../components/LargeHeader';
+import MobileFooter from '../components/MobileFooter';
 
 function LoginPage() {
   return (
-    <PageLayout>
-      <StandardHeader title=""></StandardHeader>
+    <Fragment>
+      <LargeHeader title=""></LargeHeader>
       <LoginMain></LoginMain>
-      <StandardFooter></StandardFooter>
-    </PageLayout>
+      <MobileFooter></MobileFooter>
+    </Fragment>
   );
 }
 

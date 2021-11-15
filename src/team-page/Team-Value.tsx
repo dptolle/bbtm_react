@@ -1,13 +1,12 @@
-import React from 'react';
-import Table from 'react-bootstrap/esm/Table';
+import { Stack, Table, TableBody, TableCell, TableRow, Typography } from '@mui/material';
+import React, { Fragment } from 'react';
 import DisplayField from '../components/Display-Field';
-import SplitRowValue from './Split-Row-Value';
 
 function TeamValue() {
   return (
-    <div className="team-value-container">
-      <Table responsive borderless size="sm">
-        <tbody>
+    <Stack spacing={2}>
+      <Table size="small" aria-label="Team Value">
+        <TableBody>
           {entry.map((e) => {
             return (
               <SplitRowValue
@@ -17,13 +16,47 @@ function TeamValue() {
               ></SplitRowValue>
             );
           })}
-        </tbody>
+        </TableBody>
       </Table>
-      <div className="container-flex team-value-container__final">
+      <Stack spacing={1}>
         <DisplayField label="Teamwert" value=""></DisplayField>
         <DisplayField label="Momentaner Teamwert" value=""></DisplayField>
-      </div>
-    </div>
+      </Stack>
+    </Stack>
+  );
+}
+
+interface SplitRowValueProps {
+  label: string;
+  value: number;
+  constant: number;
+}
+
+function SplitRowValue(props: SplitRowValueProps) {
+  const { label, value, constant } = props;
+  return (
+    <Fragment>
+      <TableRow>
+        <TableCell sx={{ borderBottom: 'none' }}>
+          <Typography variant="label">{label}</Typography>
+        </TableCell>
+        <TableCell sx={{ borderBottom: 'none' }}>
+          <Typography>{value}</Typography>
+        </TableCell>
+      </TableRow>
+      <TableRow>
+        <TableCell sx={{ borderBottom: 'none' }}></TableCell>
+        <TableCell sx={{ borderBottom: 'none' }}>
+          <Typography variant="label">x</Typography>
+        </TableCell>
+        <TableCell sx={{ borderBottom: 'none' }}>
+          <Typography variant="label"> {constant} GS</Typography>
+        </TableCell>
+        <TableCell sx={{ borderBottom: 'none' }}>
+          <Typography>{value * constant}</Typography>
+        </TableCell>
+      </TableRow>
+    </Fragment>
   );
 }
 

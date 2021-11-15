@@ -1,3 +1,4 @@
+import { TableCell, TableRow, Typography } from '@mui/material';
 import React  from 'react';
 
 interface Player {
@@ -19,13 +20,18 @@ function TeamPosition(props: TeamPositionProps) {
     const { number, length, player } = props;
     const playerArray = player ? ToArray(player) : [];
   return (
-    <tr>
-      <td>{number}</td>
-      {player ? Array.from({ length: length }).map((_, index) => (
-        <td key={index}>{playerArray[index]}</td>
-      )) :
-      null}
-    </tr>
+    <TableRow>
+      <TableCell>
+        <Typography variant="label">{number}</Typography>
+      </TableCell>
+      {player
+        ? Array.from({ length: length }).map((_, index) => (
+            <TableCell key={index}>
+              <Typography>{playerArray[index]}</Typography>
+            </TableCell>
+          ))
+        : null}
+    </TableRow>
   );
 }
 

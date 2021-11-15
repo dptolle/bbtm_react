@@ -16,13 +16,14 @@ function LoginMain() {
         sx={{
           margin: '0 auto',
           height: '75%',
-          justifyContent: 'space-evenly',
+          justifyContent: 'space-between',
           maxWidth: '625px',
           alignItems: 'center'
         }}
       >
         <LoginBox></LoginBox>
         <img
+        style={{ width: '80%'}}
           src="blood-bowl-logo-660x330.jpeg"
           alt="Blood Bowl logo"
         />

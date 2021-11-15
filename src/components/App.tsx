@@ -7,6 +7,10 @@ import CssBaseline from '@mui/material/CssBaseline';
 import { ThemeProvider } from '@mui/material/styles';
 import bbTheme from './bb-theme';
 import { Typography } from '@mui/material';
+import { AuthProvider } from '../contexts/AuthContext';
+import { ROUTE } from '../utils/routes';
+import AuthenticatedRoute from './AuthenticatedRoute';
+import UnauthenticatedRoute from './UnauthenticatedRoute';
 
 const App: React.FC = () => {
 
@@ -14,18 +18,23 @@ const App: React.FC = () => {
     <>
       <CssBaseline />
       <ThemeProvider theme={bbTheme}>
-        <Router>
-          <Switch>
-            <Route path="/" exact component={LoginPage} />
-            <Route path="/team" component={TeamPage} />
-            <Route path="/team-selection" component={TeamSelectionPage} />
-            <Route
-              render={() => (
-                <Typography variant="h1">404: page not found</Typography>
-              )}
-            />
-          </Switch>
-        </Router>
+        <AuthProvider>
+          <Router>
+            <Switch>
+              <UnauthenticatedRoute path={ROUTE.LOGIN} exact component={LoginPage} />
+              <AuthenticatedRoute path={ROUTE.TEAM} component={TeamPage} />
+              <AuthenticatedRoute
+                path={ROUTE.TEAM_SELECTION}
+                component={TeamSelectionPage}
+              />
+              <Route
+                render={() => (
+                  <Typography variant="h1">404: page not found</Typography>
+                )}
+              />
+            </Switch>
+          </Router>
+        </AuthProvider>
       </ThemeProvider>
     </>
   );

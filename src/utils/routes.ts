@@ -1,5 +1,5 @@
 export enum ROUTE {
-    LOGIN = "/",
-    TEAM_SELECTOB = "/team-selection",
+    LOGIN = "/login",
+    TEAM_SELECTION = "/team-selection",
     TEAM = "/team"
 }

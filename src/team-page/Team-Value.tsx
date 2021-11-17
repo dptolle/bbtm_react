@@ -1,15 +1,23 @@
-import { Stack, Table, TableBody, TableCell, TableRow, Typography } from '@mui/material';
-import React, { Fragment } from 'react';
-import DisplayField from '../components/Display-Field';
+import {
+  Stack,
+  Table,
+  TableBody,
+  TableCell,
+  TableRow,
+  Typography,
+} from "@mui/material";
+import React, { Fragment } from "react";
+import DisplayField from "../common/Display-Field";
 
 function TeamValue() {
   return (
     <Stack spacing={2}>
       <Table size="small" aria-label="Team Value">
         <TableBody>
-          {entry.map((e) => {
+          {entry.map((e, index) => {
             return (
               <SplitRowValue
+                key={index}
                 label={e.label}
                 value={e.value}
                 constant={e.constant}
@@ -37,22 +45,22 @@ function SplitRowValue(props: SplitRowValueProps) {
   return (
     <Fragment>
       <TableRow>
-        <TableCell sx={{ borderBottom: 'none' }}>
+        <TableCell sx={{ borderBottom: "none" }}>
           <Typography variant="label">{label}</Typography>
         </TableCell>
-        <TableCell sx={{ borderBottom: 'none' }}>
+        <TableCell sx={{ borderBottom: "none" }}>
           <Typography>{value}</Typography>
         </TableCell>
       </TableRow>
       <TableRow>
-        <TableCell sx={{ borderBottom: 'none' }}></TableCell>
-        <TableCell sx={{ borderBottom: 'none' }}>
+        <TableCell sx={{ borderBottom: "none" }}></TableCell>
+        <TableCell sx={{ borderBottom: "none" }}>
           <Typography variant="label">x</Typography>
         </TableCell>
-        <TableCell sx={{ borderBottom: 'none' }}>
+        <TableCell sx={{ borderBottom: "none" }}>
           <Typography variant="label"> {constant} GS</Typography>
         </TableCell>
-        <TableCell sx={{ borderBottom: 'none' }}>
+        <TableCell sx={{ borderBottom: "none" }}>
           <Typography>{value * constant}</Typography>
         </TableCell>
       </TableRow>
@@ -62,24 +70,24 @@ function SplitRowValue(props: SplitRowValueProps) {
 
 const entry = [
   {
-    label: 'Wiederholumgswürfe',
+    label: "Wiederholumgswürfe",
     value: 2,
     constant: 70000,
   },
   {
-    label: 'Assistenten',
+    label: "Assistenten",
     value: 2,
     constant: 10000,
   },
   {
-    label: 'Cheerleaders',
+    label: "Cheerleaders",
     value: 2,
     constant: 10000,
   },
   {
-    label: 'Sanitäter',
+    label: "Sanitäter",
     value: 2,
     constant: 50000,
-  }
+  },
 ];
 export default TeamValue;

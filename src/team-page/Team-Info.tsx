@@ -5,17 +5,17 @@ import TeamValue from './Team-Value';
 
 function TeamInfo() {
   const theme = useTheme();
-  const matches = useMediaQuery(theme.breakpoints.up('sm'));
+  const isLarge = useMediaQuery(theme.breakpoints.up('sm'));
   return (
     <Fragment>
       <Typography variant="h2">
         Team Information
       </Typography>
       <Stack
-        divider={matches ? undefined : <Divider flexItem />}
+        divider={isLarge ? undefined : <Divider flexItem />}
         spacing={2}
         direction={
-          matches ? 'row' : 'column'
+          isLarge ? 'row' : 'column'
         }
         sx={{justifyContent:'space-between'}}
       >

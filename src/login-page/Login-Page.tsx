@@ -1,14 +1,14 @@
-import React, { Fragment } from 'react';
-import LoginMain from './Login-Main';
-import LargeHeader from '../components/LargeHeader';
-import MobileFooter from '../components/MobileFooter';
+import React, { Fragment } from "react";
+import LoginMain from "./Login-Main";
+import HeaderBar from "../common/Header-Bar";
+import FooterBar from "../common/Footer-Bar";
 
 function LoginPage() {
   return (
     <Fragment>
-      <LargeHeader title=""></LargeHeader>
+      <HeaderBar title=""></HeaderBar>
       <LoginMain></LoginMain>
-      <MobileFooter></MobileFooter>
+      <FooterBar fabAction={() => null}></FooterBar>
     </Fragment>
   );
 }

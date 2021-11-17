@@ -54,6 +54,9 @@ const theme = {
         h3: {
             fontSize: "1.5em"
         },
+        h5: {
+            fontSize: "1.1em"
+        },
         label: {
             fontFamily: fancyFont
         }

@@ -8,13 +8,13 @@ interface TeamSelectionItemProps {
 
 function TeamSelectionItem(props: TeamSelectionItemProps) {
     const theme = useTheme();
-    const matches = useMediaQuery(theme.breakpoints.up('sm'));
+    const isLarge = useMediaQuery(theme.breakpoints.up('sm'));
 
   const { name } = props;
   return (
     <Link to="/team" style={{}}>
       <Stack
-        direction={matches ? 'column-reverse' : 'row-reverse'}
+        direction={isLarge ? 'column-reverse' : 'row-reverse'}
         sx={{
           alignItems: 'center',
           justifyContent: 'flex-end',
@@ -35,7 +35,7 @@ function TeamSelectionItem(props: TeamSelectionItemProps) {
         </Typography>
         <img
           style={{
-            maxHeight: matches ? '150px' : '75px',
+            maxHeight: isLarge ? '150px' : '75px',
             alignSelf: 'center',
           }}
           src="bb-button.png"

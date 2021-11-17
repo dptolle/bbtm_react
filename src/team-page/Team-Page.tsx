@@ -1,15 +1,15 @@
-import React, { Fragment } from 'react';
-import MobileFooter from '../components/MobileFooter';
-import TeamMain from './Team-Main';
-import LargeHeader from '../components/LargeHeader';
+import React from "react";
+import TeamMain from "./Team-Main";
+import HeaderBar from "../common/Header-Bar";
+import FooterBar from "../common/Footer-Bar";
 
 function TeamPage() {
   return (
-    <Fragment>
-      <LargeHeader title="Team"></LargeHeader>
+    <>
+      <HeaderBar title="Team"></HeaderBar>
       <TeamMain></TeamMain>
-      <MobileFooter></MobileFooter>
-    </Fragment>
+      <FooterBar fabAction={() => null}></FooterBar>
+    </>
   );
 }
 

@@ -1,6 +1,6 @@
-import { Stack } from '@mui/material';
-import React from 'react';
-import DisplayField from '../components/Display-Field';
+import { Stack } from "@mui/material";
+import React from "react";
+import DisplayField from "../common/Display-Field";
 
 function TeamProgress() {
   return (
